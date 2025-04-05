@@ -23,7 +23,7 @@
 #let lncs(
   title: [Contribution Title],
   thanks: none,
-  abstract: [],
+  abstract: none,
   authors: (),
   keywords: (),
   // The result of a call to the `bibliography` function or `none`.
@@ -83,6 +83,7 @@
 
   //// HEADING CONFIGS
   set heading(numbering: "1.1")
+  show heading: it => if it.numbering == none { it } else { block(counter(heading).display(it.numbering) + h(1em) + it.body) }
   // padding
   show heading.where(level: 1): pad.with(bottom: 0.64em, top: 0.64em)
   show heading.where(level: 2): pad.with(bottom: 0.9em)
